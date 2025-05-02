@@ -1,0 +1,3 @@
+# Ignorar arquivos temporários do build .NET
+**/bin/
+**/obj/
