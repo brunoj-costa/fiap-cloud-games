@@ -25,6 +25,10 @@ public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
         builder.HasIndex(u => u.Email)
             .IsUnique();
 
+        builder.Property(u => u.TipoUsuario)
+            .HasDefaultValue(TipoUsuario.Usuario)
+            .IsRequired();
+
         builder.ToTable("Usuarios");
     }
 }
