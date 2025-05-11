@@ -1,5 +1,8 @@
+using FCG.Infrastructure.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDatabaseConfiguration(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
