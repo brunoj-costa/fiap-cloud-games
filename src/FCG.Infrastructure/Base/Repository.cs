@@ -32,10 +32,11 @@ public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity :
         return await DbSet.ToListAsync();
     }
 
-    public virtual async Task Adicionar(TEntity entity)
+    public virtual async Task<TEntity> Adicionar(TEntity entity)
     {
-        DbSet.Add(entity);
+        var addedEntity = DbSet.Add(entity).Entity;
         await SaveChanges();
+        return addedEntity;
     }
 
     public virtual async Task Atualizar(TEntity entity)
